@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const dotenv = require('dotenv');
 const productsRoutes = require('./routes/products.routes');
-
+const loginRoutes = require('./routes/login.routes');
 
 
 dotenv.config(); // Charge the variables of the .env file
@@ -17,8 +17,9 @@ app.get('/', (req, res) => {
   res.send('Servidor funcionando');
 });
 
-// Base routes
+// Routes
 app.use('/api/products', productsRoutes);
+app.use('/api/login', loginRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
