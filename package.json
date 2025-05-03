@@ -25,5 +25,8 @@
     "url": "https://github.com/juanfe7/proyecto-DW-commit-masters-backend/issues"
   },
   "homepage": "https://github.com/juanfe7/proyecto-DW-commit-masters-backend#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
 }

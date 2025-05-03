@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+// Simulated database of users (for demonstration purposes only)
 const users = [
   {
     id: 1,
@@ -16,15 +17,23 @@ const users = [
   }
 ];
 
+// Login controller function
 const login = async (req, res) => {
   const { email, password } = req.body;
 
+  // Validate request body
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email y contraseña son requeridos' });
+  } 
   const user = users.find(u => u.email === email);
   if (!user) return res.status(401).json({ error: 'Usuario no encontrado' });
-
+  
+  // Compare the password with the hashed password in the database
   const match = await bcrypt.compare(password, user.password);
   if (!match) return res.status(401).json({ error: 'Contraseña incorrecta' });
 
+  // Generate JWT token
+  // The payload can include user information such as id, role, etc.
   const payload = { id: user.id, rol: user.rol, email: user.email };
   const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 

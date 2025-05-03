@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { obtainProducts, createProduct, getProductById } = require('../controllers/products.controller');
+const authMiddleware = require('../middleware/authMiddleware'); // Import the authentication middleware
 
-// GET /api/productos
-router.get('/', obtainProducts);
+router.get('/', authMiddleware, obtainProducts); // Nedds authentication middleware
 
 // POST /api/productos
-router.post('/', createProduct);
+router.post('/', authMiddleware, createProduct); // Nedds authentication middleware
 
 // GET /api/productos/:id
-router.get('/:id', getProductById);
+router.get('/:id', authMiddleware, getProductById); // Nedds authentication middleware
 
 module.exports = router;

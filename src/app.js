@@ -8,7 +8,7 @@ const loginRoutes = require('./routes/login.routes');
 
 dotenv.config(); // Charge the variables of the .env file
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(express.json());
 
