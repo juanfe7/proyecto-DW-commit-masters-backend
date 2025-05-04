@@ -5,14 +5,14 @@ const jwt = require('jsonwebtoken');
 const users = [
   {
     id: 1,
-    email: 'cliente@uni.com',
+    email: '111111',
     password: '$2b$10$chGx6gH4leoF4.0E/sZhYeCOr/4dZyMQ0VTUtvYQEW1BVL2EFqoVi', // "123456"
     rol: 'cliente'
   },
   {
     id: 2,
-    email: 'pos@uni.com',
-    password: '$2b$10$MvQ9sHQx59UbQHi8gRM3l.qas5LG54Ul65Zzv6VrFOPnsIRZ4rErK', // "654321"
+    email: '222222',
+    password: '$2b$10$10uBj52FjZmPoNfd/GO1H.nDN/p63ZirplfSN4M5uvSaD9M1wLJ8W', // "78910"
     rol: 'pos'
   }
 ];
@@ -23,7 +23,7 @@ const login = async (req, res) => {
 
   // Validate request body
   if (!email || !password) {
-    return res.status(400).json({ error: 'Email y contraseña son requeridos' });
+    return res.status(400).json({ error: 'Usuario y contraseña son requeridos' });
   } 
   const user = users.find(u => u.email === email);
   if (!user) return res.status(401).json({ error: 'Usuario no encontrado' });
