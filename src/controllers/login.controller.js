@@ -6,13 +6,13 @@ const users = [
   {
     id: 1,
     email: '111111',
-    password: '$2b$10$Xdzx7Hpi26MwINtmQ/VeauyeUStHDBCeNvKWYGSsK3GUStrWy61Pq', // "Sabana1"
+    password: '$2b$10$chGx6gH4leoF4.0E/sZhYeCOr/4dZyMQ0VTUtvYQEW1BVL2EFqoVi', // "123456"
     rol: 'cliente'
   },
   {
     id: 2,
     email: '222222',
-    password: '$2b$10$N0Y9mqwXStQ5ZJkzkaDHAO9hFcXNIuawDfiertsX8C/CxRPY1w5UO', // "Sabana2"
+    password: '$2b$10$10uBj52FjZmPoNfd/GO1H.nDN/p63ZirplfSN4M5uvSaD9M1wLJ8W', // "78910"
     rol: 'pos'
   }
 ];
