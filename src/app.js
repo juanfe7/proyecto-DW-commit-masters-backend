@@ -21,5 +21,5 @@ app.get('/', (req, res) => {
 app.use('/api/products', productsRoutes);
 app.use('/api/login', loginRoutes);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor en puerto ${PORT}`));
+module.exports = app;
+
