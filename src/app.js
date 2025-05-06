@@ -6,7 +6,9 @@ const productsRoutes = require('./routes/products.routes');
 const loginRoutes = require('./routes/login.routes');
 
 
-dotenv.config(); // Charge the variables of the .env file
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 // Middleware
 app.use(cors());
