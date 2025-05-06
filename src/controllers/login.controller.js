@@ -35,7 +35,8 @@ const login = async (req, res) => {
   // Generate JWT token
   // The payload can include user information such as id, role, etc.
   const payload = { id: user.id, rol: user.rol, email: user.email };
-  const token = jwt.sign({ id: user.id, role: user.rol }, 'key-ultrasecret123', { expiresIn: '1h' });
+  const token = jwt.sign({ id: user.id, role: user.rol }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
 
   res.json({ token, rol: user.rol });
 };
