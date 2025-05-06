@@ -1,11 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const dotenv = require('dotenv');
 const productsRoutes = require('./routes/products.routes');
 const loginRoutes = require('./routes/login.routes');
 
-
+// Cargar .env solo en desarrollo local
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
@@ -14,14 +13,21 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(cors());
 app.use(express.json());
 
-// Rice route
+// Ruta base para probar funcionamiento
 app.get('/', (req, res) => {
+  console.log('✅ Entró a /');
   res.send('Servidor funcionando');
 });
 
-// Routes
+// Rutas
 app.use('/api/products', productsRoutes);
 app.use('/api/login', loginRoutes);
 
-module.exports = app;
+// Middleware global de manejo de errores
+app.use((err, req, res, next) => {
+  console.error('🔴 Error inesperado:', err);
+  res.status(500).json({ error: 'Error interno del servidor' });
+});
 
+// Exportar la app para que Vercel la use como función serverless
+module.exports = app;
